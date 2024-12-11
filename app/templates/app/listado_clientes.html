@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<form method="get" action="{% url 'app:listado_clientes' %}">
+    <input type="text" name="busqueda_clientes" value="{{ request.GET.busqueda_clientes }}" placeholder="Buscar clientes" class="input-grande">
+    <input type="submit" value="Buscar" class="btn-grande">
+</form>
+{% if listado_clientes %}
+    <ul class="lista-clientes">
+        {% for cliente in listado_clientes %}
+           <li class="item-cliente">{{ cliente }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p class="texto-grande">No se encontraron clientes</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Crear Cliente{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card p-4" style="max-width: 600px; width: 100%; background-color: transparent; border: none;">
+        <form method="POST" action="{% url 'app:crear_cliente' %}" class="formulario-crear-cliente">
+            {% csrf_token %}
+            <!-- Muestra el formulario renderizado -->
+            {{ form.as_p }}
+            
+            <!-- Botón de envío estilizado -->
+            <div class="text-center">
+                <button type="submit" class="btn-grande">Guardar</button>
+            </div>
+        </form>
+        <!-- Enlace para volver al inicio -->
+        <div class="text-center mt-3">
+            <a href="{% url 'app:inicio' %}" class="btn btn-secondary">Volver al inicio</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
