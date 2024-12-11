@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ClienteForm
 from .models import Cliente
 from django.db.models import Q
@@ -15,7 +15,7 @@ def crear_cliente(request):
         form = ClienteForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('app:inicio')
+            return redirect('app:listado_clientes')
     else:
         form = ClienteForm()
     return render(request, 'app/crear_cliente.html', {'form': form})
@@ -23,11 +23,30 @@ def crear_cliente(request):
 def listado_clientes(request):
     busqueda = request.GET.get('busqueda_clientes')
     if busqueda:
-        listado_clientes = Cliente.objects.filter(
+        lista_clientes = Cliente.objects.filter(
             Q(nombre__icontains=busqueda) |
             Q(apellido__icontains=busqueda) |
             Q(email__icontains=busqueda))
     else:
-        listado_clientes = Cliente.objects.all()
+        lista_clientes = Cliente.objects.all()
 
-    return render(request, 'app/listado_clientes.html', {'listado_clientes': listado_clientes})
+    return render(request, 'app/listado_clientes.html', {'listado_clientes': lista_clientes})
+
+
+def editar_cliente(request, pk):
+    cliente = get_object_or_404(Cliente, pk=pk)
+    if request.method == 'POST':
+        form = ClienteForm(request.POST, instance=cliente)
+        if form.is_valid():
+            form.save()
+            return redirect('app:listado_clientes')
+    else:
+        form = ClienteForm(instance=cliente)
+    return render(request, 'app/editar_cliente.html', {'form': form, 'cliente': cliente})
+
+def eliminar_cliente(request, pk):
+    cliente = get_object_or_404(Cliente, pk=pk)
+    if request.method == 'POST':
+        cliente.delete()
+        return redirect('app:listado_clientes')
+    return render(request, 'app/eliminar_cliente.html', {'cliente': cliente})

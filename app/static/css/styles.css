@@ -11202,212 +11202,36 @@ body {
   padding: 5rem 0;
 }
 
-/* Estilos específicos para el formulario de creación de cliente */
-.formulario-crear-cliente {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.05); /* Fondo sutil */
-  border-radius: 8px;
-}
 
-.formulario-crear-cliente input,
-.formulario-crear-cliente select,
-.formulario-crear-cliente textarea {
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 1rem;
-  width: 100%;
-  margin-bottom: 15px;
-}
 
-.formulario-crear-cliente button {
-  padding: 12px 30px;
-  font-size: 1.2rem;
-  border-radius: 25px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
 
-.formulario-crear-cliente button:hover {
-  background-color: #0056b3; /* Cambiar color al pasar el mouse */
-}
 
-.formulario-crear-cliente .text-center {
-  margin-top: 20px;
-}
-/* Titulo grande */
-.titulo-grande {
-  font-size: 3rem;  /* Ajusta el tamaño según lo desees */
-  font-weight: bold;
-  text-align: center;
-  color: white;  /* Asegúrate de que el texto se vea sobre un fondo oscuro */
-}
 
-/* Entrada de texto más grande */
-.input-grande {
-  font-size: 1.5rem;
-  padding: 10px;
-  margin: 10px 0;
-  width: 100%;
-  border-radius: 5px;
-}
 
-/* Botón de búsqueda más grande */
+/* Botones grandes */
 .btn-grande {
-  font-size: 1.5rem;
   padding: 10px 20px;
-  background-color: #007bff;
+  font-size: 16px;
+  background-color: #007BFF; /* Color base */
   color: white;
   border: none;
-  cursor: pointer;
   border-radius: 5px;
-}
-
-.btn-grande:hover {
-  background-color: #0056b3;
-}
-
-/* Lista de clientes */
-.lista-clientes {
-  list-style-type: none; /* Elimina los puntos de la lista */
-  padding-left: 0;
-}
-
-/* Elementos de la lista */
-.item-cliente {
-  font-size: 1.5rem;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-}
-
-/* Mensaje cuando no hay clientes */
-.texto-grande {
-  font-size: 1.5rem;
-  color: white;
-  text-align: center;
-}
-/* Titulo grande */
-.titulo-grande {
-    font-size: 3rem;  /* Ajusta el tamaño del título */
-    font-weight: bold;
-    text-align: center;
-    color: white;  /* Ajusta el color para que sea visible */
-}
-
-/* Formulario */
-.formulario-crear-cliente {
-    background-color: transparent;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: none;
-}
-
-/* Campos de entrada con fondo visible */
-.formulario-crear-cliente input, 
-.formulario-crear-cliente select, 
-.formulario-crear-cliente textarea {
-    font-size: 1.5rem;  /* Tamaño más grande para los campos de entrada */
-    background-color: white;
-    color: black;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 12px;
-    margin-bottom: 10px;
-    width: 100%;
-}
-
-/* Botón de envío más grande */
-.btn-grande {
-    font-size: 1.5rem;  /* Aumenta el tamaño de la letra del botón */
-    padding: 12px 30px;
-    font-weight: bold;
-    border-radius: 25px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-/* Efecto hover en el botón */
-.btn-grande:hover {
-    background-color: #0056b3;
-}
-
-/* Enlace para volver al inicio */
-.formulario-crear-cliente .text-center a {
-    font-size: 1.2rem;
-    color: #007bff;
-    text-decoration: none;
-}
-
-/* Enlace hover */
-.formulario-crear-cliente .text-center a:hover {
-    text-decoration: underline;
-}
-
-
-/* Titulo grande */
-.titulo-grande {
-  font-size: 3rem;  /* Ajusta el tamaño del título */
-  font-weight: bold;
-  text-align: center;
-  color: white;  /* Ajusta el color para que sea visible */
-}
-
-/* Formulario */
-.formulario-crear-cliente {
-  background-color: transparent;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: none;
-  margin-top: 40px;  /* Espacio añadido para separar el formulario de la barra de navegación */
-}
-
-/* Campos de entrada con fondo visible */
-.formulario-crear-cliente input, 
-.formulario-crear-cliente select, 
-.formulario-crear-cliente textarea {
-  font-size: 1.5rem;  /* Tamaño más grande para los campos de entrada */
-  background-color: white;
-  color: black;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 12px;
-  margin-bottom: 10px;
-  width: 100%;
-}
-
-/* Botón de envío más grande */
-.btn-grande {
-  font-size: 1.5rem;  /* Aumenta el tamaño de la letra del botón */
-  padding: 12px 30px;
-  font-weight: bold;
-  border-radius: 25px;
-  background-color: #007bff;
-  color: white;
-  border: none;
+  text-decoration: none;
   cursor: pointer;
+  display: inline-block;
+  text-align: center;
   transition: background-color 0.3s ease;
 }
 
-/* Efecto hover en el botón */
 .btn-grande:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* Color al pasar el cursor */
 }
 
-/* Enlace para volver al inicio */
-.formulario-crear-cliente .text-center a {
-  font-size: 1.2rem;
-  color: #007bff;
-  text-decoration: none;
+/* Botón específico para Crear Cliente (opcional si quieres diferente color) */
+.crear-cliente .btn-grande {
+  background-color: #28A745; /* Verde para "Crear Cliente" */
 }
 
-/* Enlace hover */
-.formulario-crear-cliente .text-center a:hover {
-  text-decoration: underline;
+.crear-cliente .btn-grande:hover {
+  background-color: #1e7e34;
 }
