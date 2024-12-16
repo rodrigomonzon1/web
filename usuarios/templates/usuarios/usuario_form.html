@@ -1,0 +1,11 @@
+
+{% extends "base.html" %}
+{% block title %} {{ view.object.pk|yesno:"Editar Usuario,Nuevo Usuario" }} {% endblock %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+</form>
+<a href="{% url 'usuarios:usuario-list' %}">Cancelar</a>
+{% endblock %}

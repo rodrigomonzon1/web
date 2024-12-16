@@ -35,7 +35,28 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="/listado_clientes">Clientes</a>
                                 </li>
-                    </ul>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/usuario_list">Usuarios</a>
+                                </li>
+                                {% if user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href= {% url "usuarios:perfil" %}>Bienvenido, {{ user.username }} <img src="{{ user.infousuario.avatar.url }}" alt="Avatar" style="width: 25px; height: 25px;">
+                                    </a>                                    
+                                </li>
+                                <li class="nav-item">
+                                    <form action="{% url 'usuarios:logout' %}" method='post'>
+                                        {% csrf_token %}
+                                    <button>Cerrar sesion</button>
+                                </li>
+                                {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'usuarios:login' %}">Iniciar Sesión</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'usuarios:registro' %}">Registrarse</a>
+                                </li>
+                                {% endif %}
+                            </form>
                 </div>
             </div>
         </nav>

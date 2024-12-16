@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Cambiar contraseña</h1>
+<form action="{% url 'usuarios:cambiar_contraseña' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <button type="submit">Cambiar contraseña</button>
+</form>
+{% endblock %}

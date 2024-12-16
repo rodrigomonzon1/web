@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ClienteForm
 from .models import Cliente
 from django.db.models import Q
-
+from django.contrib.auth.decorators import login_required
 
 def inicio(request):
     return render(request, 'app/inicio.html')
@@ -10,6 +10,7 @@ def inicio(request):
 def acerca_de(request):
     return render(request, 'app/acerca_de.html')
 
+@login_required
 def crear_cliente(request):
     if request.method == 'POST':
         form = ClienteForm(request.POST)
@@ -32,7 +33,7 @@ def listado_clientes(request):
 
     return render(request, 'app/listado_clientes.html', {'listado_clientes': lista_clientes})
 
-
+@login_required
 def editar_cliente(request, pk):
     cliente = get_object_or_404(Cliente, pk=pk)
     if request.method == 'POST':
@@ -44,6 +45,7 @@ def editar_cliente(request, pk):
         form = ClienteForm(instance=cliente)
     return render(request, 'app/editar_cliente.html', {'form': form, 'cliente': cliente})
 
+@login_required
 def eliminar_cliente(request, pk):
     cliente = get_object_or_404(Cliente, pk=pk)
     if request.method == 'POST':

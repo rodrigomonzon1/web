@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %} Lista de usuarios{% endblock %}
+{% block content %}
+
+<a href="{% url 'usuarios:usuario-create' %}">Crear Usuario</a>
+<ul>
+    {% for usuario in usuarios %}
+        <li>
+            <a href="{% url 'usuarios:usuario-detail' usuario.pk %}">{{ usuario.nombre }}</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

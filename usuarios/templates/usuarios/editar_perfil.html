@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Editar perfil{% endblock %}
+{% block content %}
+<h1>Perfil de {{request.user.first_name}} {{request.user.last_name}}</h1>
+<ul>
+        <li>Nombre: {{request.user.first_name}}</li>
+        <li>Apellido: {{request.user.last_name}}</li>        
+        <li>Usuario: {{request.user.username}}</li>
+        <li>Correo: {{request.user.email}}</li>
+</ul>
+
+<form action={% url "usuarios:editar_perfil" %} method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar cambios</button>
+    </form>
+    
+
+
+{% endblock %}
+
+
