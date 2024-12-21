@@ -5,3 +5,5 @@ Este proyecto consiste en una aplicación web orientada al backend utilizando **
 - Crear nuevos clientes en la base de datos.
 - Filtrar clientes por diferentes criterios.
 - Ver la lista de todos los clientes almacenados.
+- Crear avatar, poder loguearte, cerrar sesion o registrarte y editar tu perfil
+- Crear un blog de mensajerias
