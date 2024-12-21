@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Mensajería{% endblock %}
+{% block content %}
+<body>
+        <h1></h1>
+        <h2>Deja un mensaje:</h2>
+        <form method="post" action="{% url 'usuarios:mensajeria' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Enviar</button>
+            
+        </form>
+    
+        <h2>Mensajes recientes:</h2>
+        <ul>
+            {% for mensaje in mensajes %}
+                <li>
+                    <strong>{{ mensaje.usuario.username }}</strong> dijo:
+                    <p>{{ mensaje.contenido }}</p>
+                    <em>{{ mensaje.fecha_creacion }}</em>
+                </li>
+            {% empty %}
+                <li>No hay mensajes aún.</li>
+            {% endfor %}
+        </ul>
+{% endblock %}
+
+

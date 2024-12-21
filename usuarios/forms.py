@@ -1,12 +1,7 @@
 from django import forms
-from .models import Usuario
+from .models import Usuario, Mensaje
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
-
-from django import forms
-from django.contrib.auth.models import User
-from .models import Usuario, InfoUsuario
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 class UsuarioForm(forms.ModelForm):
     class Meta:
@@ -53,3 +48,8 @@ class EditarPerfil(forms.ModelForm):
                 if commit:
                     self.info_usuario_instance.save()
         return user
+
+class MensajeForm(forms.ModelForm):
+    class Meta:
+        model = Mensaje
+        fields = ['contenido']

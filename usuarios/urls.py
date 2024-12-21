@@ -1,6 +1,6 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
-from .views import UsuarioListView, UsuarioDetailView, UsuarioCreateView, UsuarioUpdateView, UsuarioDeleteView, registro, perfil, editar_perfil, CambiarContraseña
+from .views import UsuarioListView, UsuarioDetailView, UsuarioCreateView, UsuarioUpdateView, UsuarioDeleteView, registro, perfil, editar_perfil, CambiarContraseña, mensajeria
 
 app_name = 'usuarios'
 
@@ -15,5 +15,6 @@ urlpatterns = [
     path('registro/', registro, name = 'registro'),
     path('perfil/', perfil, name = 'perfil'),
     path('perfil/editar/', editar_perfil, name = 'editar_perfil'),
-    path('perfil/cambiar_contraseña/', CambiarContraseña.as_view(), name = 'cambiar_contraseña')
+    path('perfil/cambiar_contraseña/', CambiarContraseña.as_view(), name = 'cambiar_contraseña'),
+    path('mensajeria/', mensajeria, name='mensajeria')
 ]

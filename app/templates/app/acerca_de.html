@@ -3,31 +3,41 @@
 {% block title %}Acerca de{% endblock %}
 <!-- base.html -->
 {% block content %}
-    <section id="acerca-de" class="container my-5">
-       <!-- Acerca de -->
-        <h2 class="text-center mb-4 text-white">Acerca del Proyecto</h2>
+<h1 class="text-center my-5 text-primary">Acerca de</h1>
 
-        <p class="lead text-center mb-4 text-white">
-            Este proyecto fue creado como parte de la pre entrega de Coderhouse. En él, se implementan formularios para la creación de clientes, se realizan búsquedas en la base de datos, y los resultados se muestran en una interfaz dinámica utilizando plantillas de Django.
-        </p>
-        <div class="row text-white">
-            <div class="col-md-6">
-                <h3 class="mb-3">Objetivos del Proyecto:</h3>
-                <ul>
-                    <li class="list-group-item">Crear formularios para ingresar datos de clientes.</li>
-                    <li class="list-group-item">Realizar búsquedas en la base de datos para mostrar los clientes registrados.</li>
-                    <li class="list-group-item">Plasmar los resultados en una página utilizando HTML y plantillas de Django.</li>
-                </ul>
-            </div>
-            <div class="col-md-6">
-                <h3 class="mb-3">Estado Actual:</h3>
-                <p>
-                    Actualmente, estamos trabajando en la implementación de las búsquedas avanzadas y en mejorar la interacción con la base de datos. El proyecto está en su fase intermedia.
-                </p>
-            </div>
-        </div>        
-        <div class="text-center mt-5">
-            <a href="/listado_clientes" class="btn btn-primary btn-lg">Ver listado de clientes</a>
+<section id="acerca-de" class="container my-5">
+    <div class="row">
+        <div class="col-12">
+            <p class="lead text-center mb-4 text-white">
+                Este proyecto fue desarrollado como parte de la preentrega de Coderhouse y tiene como objetivo crear una plataforma web interactiva utilizando Django y Bootstrap. En él, se implementan diversas funcionalidades que permiten la gestión de usuarios, la interacción entre ellos y la personalización de perfiles.
+            </p>
+
+            <h2 class="text-white mb-4">Objetivos del Proyecto:</h2>
+            
+            <ul class="list-group text-white">
+                <li class="list-group-item bg-dark mb-2 text-white">
+                    <strong>Gestión de Usuarios:</strong> Crear un sistema de registro e inicio de sesión, permitiendo la creación de perfiles de usuario con información personalizada, como avatares.
+                </li>
+                <li class="list-group-item bg-dark mb-2 text-white">
+                    <strong>Cuentas Administrativas:</strong> Implementar una sección de administración donde los usuarios con permisos especiales puedan editar y gestionar otros usuarios, incluyendo la asignación de roles y privilegios.
+                </li>
+                <li class="list-group-item bg-dark mb-2 text-white">
+                    <strong>Listas y Buscadores:</strong> Crear listas dinámicas de usuarios y otros elementos, con funcionalidades de búsqueda avanzada que permiten filtrar resultados según diferentes criterios.
+                </li>
+                <li class="list-group-item bg-dark mb-2 text-white">
+                    <strong>Foro de Mensajes:</strong> Desarrollar un foro interactivo donde los usuarios puedan enviar y recibir mensajes, fomentar la comunicación entre ellos y participar en discusiones.
+                </li>
+                <li class="list-group-item bg-dark mb-2 text-white">
+                    <strong>Interfaz Dinámica:</strong> Utilizar Bootstrap para crear una interfaz atractiva, moderna y fácil de usar, que se adapta a diferentes dispositivos y tamaños de pantalla.
+                </li>
+            </ul>
+
+            <h2 class="text-center text-white my-4">Estado Actual:</h2>
+            <p class="text-white">
+                El proyecto está en su fase final de desarrollo. Actualmente, se está trabajando en la mejora de las funcionalidades de búsqueda avanzada y en la optimización de la interacción con la base de datos. La implementación del foro y la gestión de avatares están completas, y se encuentra en proceso la personalización de las interfaces de usuario y la mejora de la administración de cuentas.
+            </p>
         </div>
-    </section>
+    </div>
+</section>
+
 {% endblock %}

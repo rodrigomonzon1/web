@@ -40,7 +40,15 @@
                                 </li>
                                 {% if user.is_authenticated %}
                                 <li class="nav-item">
-                                    <a class="nav-link" href= {% url "usuarios:perfil" %}>Bienvenido, {{ user.username }} <img src="{{ user.infousuario.avatar.url }}" alt="Avatar" style="width: 25px; height: 25px;">
+                                    <a class="nav-link" href="{% url 'usuarios:mensajeria' %}">Foro</a>                        
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'usuarios:perfil' %}">
+                                        Bienvenido, {{ user.username }}
+                                        {% if user.infousuario.avatar %}
+                                            <img src="{{ user.infousuario.avatar.url }}" alt="Avatar" style="width: 25px; height: 25px;">
+                                        {% endif %}
+                                    </a>                                    
                                     </a>                                    
                                 </li>
                                 <li class="nav-item">

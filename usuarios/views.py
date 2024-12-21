@@ -1,11 +1,13 @@
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from django.urls import reverse_lazy
-from .models import Usuario, InfoUsuario
-from .forms import UsuarioForm, RegistroDeUsuario, EditarPerfil
+from .models import Usuario, InfoUsuario, Mensaje
+from .forms import UsuarioForm, RegistroDeUsuario, EditarPerfil, MensajeForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import PasswordChangeView
+from django.shortcuts import render, redirect
+
 
 class UsuarioListView(ListView):
     model = Usuario
@@ -35,19 +37,15 @@ class UsuarioDeleteView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('usuarios:usuario-list')
     
 def registro(request):
-    
     formulario = RegistroDeUsuario()
     
     if request.method == "POST":
         formulario = RegistroDeUsuario(request.POST)
         if formulario.is_valid():
             formulario.save()
-            
             return redirect('usuarios:login')
-        
-        
+    
     return render(request, 'usuarios/registro.html', {'form': formulario})
-
 
 def perfil(request):
     
@@ -77,4 +75,19 @@ def editar_perfil(request):
 class CambiarContraseña(LoginRequiredMixin, PasswordChangeView):
     template_name = 'usuarios/cambiar_contraseña.html'
     success_url = reverse_lazy('usuarios:perfil')
+    
+@login_required
+def mensajeria(request):
+    if request.method == "POST":
+        form = MensajeForm(request.POST)
+        if form.is_valid():
+            mensaje = form.save(commit=False)
+            mensaje.usuario = request.user  # Asigna el usuario autenticado
+            mensaje.save()
+            return redirect('usuarios:mensajeria')
+    else:
+        form = MensajeForm()
+
+    mensajes = Mensaje.objects.all().order_by('-fecha_creacion')
+    return render(request, 'usuarios/mensajeria.html', {'form': form, 'mensajes': mensajes})
 
